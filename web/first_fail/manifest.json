@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Password Manager",
+    "description": "Secure password manager chrome extension",
+    "version": "1.0",
+
+    "browser_action": { },
+    "permissions": [
+        "activeTab",
+        "nativeMessaging"
+    ],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["app.js"]
+        }
+    ],
+    "web_accessible_resources":["api.js"],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyvTQMynMiYmdtq2bEQIHfj7+j8jy3CT4BE7IdKVJhIyJ5o/8vcnnn7QcmklAMTjo/Sn3bBCCRpFWMT5Ils9kwoue4QSsw2rIRjMFzKkpImjUSnaNur4MWPZCSd/gW7E8ZWUmOGPiXe0wCDkzCG9QoDY6g+7vmdpA5NbtLf1AnxqkwghvVyUL+ic8vzfZVad8yyM69ahGtXYyEyjy+x+X6YwMhuYA9hRxX70X1wzs8Uu1DIhCFiaQ6YPu7r4RrPdgYvUB1VEgIwmaqUqPlMbtj3QBt4xO86tbkm3oykHremACutMH7YFzj+SCVQRSTQy0v9iMt87LE/2yaKnWYwsT2wIDAQAB"
+}
