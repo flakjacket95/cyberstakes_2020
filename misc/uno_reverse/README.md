@@ -10,7 +10,7 @@ This challenge is all about writing shellcode, shellcode that specifically fits 
 
 2. `seccomp` is enabled, and only allows certain syscalls. Specifically, read, write, open, close, exit, and a few others are allowed, all else are blocked.
 
-3. There are two threads, one runs the shellcode forwards, the other runs it in reverse. 
+3. There are two threads, one runs the shellcode forwards, the other runs it in reverse.
 
 4. In order to properly receive output, both threads _must_ return (an exit does not quite achieve this).
 
@@ -19,8 +19,8 @@ This challenge is all about writing shellcode, shellcode that specifically fits 
 6. Least of all, we only have 64 bytes to fit in our shellcode.
 
 To gloss over a sizable period of testing, I discovered the additional three helpful properties:
-1. Since our code is called from a register `call eax`, we know the address of the shellcode is in eax when we begin execution.
-2. Similar to the above, when our shellcode executes, we also know that the return address is in rsp. Which will assist us in returning properly.
+1. Since our code is called from a register `call rax`, we know the address of the shellcode is in eax when we begin execution.
+2. Similar to the above, when our shellcode executes, we also know that the return address is in `rsp`. Which will assist us in returning properly.
 3. The program output was the shellcode provided, and was read from memory after execution.
 
 # Approach
