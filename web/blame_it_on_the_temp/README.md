@@ -26,7 +26,7 @@ I first learned about using a string to access a class object, which would be do
 ```
 (<class 'str'>, <class 'object'>)
 ```
-So, to  further my exploit, I should add a `[1]` and then I can see a list of subclasses available in the root object (which would be all available), with `__subclasses__()`. This returns the following:
+So, to  further my exploit, I should add a `[1]` and then I can see a list of subclasses available in the root object (which would all be potentially useful functions to call), with `__subclasses__()`. This returns the following:
 ```
 [<class 'type'>, <class 'weakref'>, <class 'weakcallableproxy'>, <class 'weakproxy'>, <class 'int'>,
 ...
