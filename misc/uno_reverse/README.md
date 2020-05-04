@@ -19,7 +19,7 @@ This challenge is all about writing shellcode, shellcode that specifically fits 
 6. Least of all, we only have 64 bytes to fit in our shellcode.
 
 To gloss over a sizable period of testing, I discovered the additional three helpful properties:
-1. Since our code is called from a register `call rax`, we know the address of the shellcode is in eax when we begin execution.
+1. Since our code is called from a register `call rax`, we know the address of the shellcode is in rax when we begin execution.
 2. Similar to the above, when our shellcode executes, we also know that the return address is in `rsp`. Which will assist us in returning properly.
 3. The program output was the shellcode provided, and was read from memory after execution.
 
@@ -28,7 +28,7 @@ So, my approach to this was to perform two syscalls. One would open the file `fl
 
 Since I couldn't use the letters in the word `flag`, I changed them all by one and used an increment and a decrement to change them back when executing. (since these opcodes are only one byte long).
 
-Finally, I used the address in rsp to jump back to where the execution had finished, so that the two threads would return properly. (For the reverse solution, I simply sent the `jmp [rsp]` in reverse).
+Finally, I used the address in `rsp` to jump back to where the execution had finished, so that the two threads would return properly. (For the reverse solution, I simply sent the `jmp [rsp]` in reverse).
 
 
 # Solution
