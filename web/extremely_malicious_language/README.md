@@ -21,7 +21,7 @@ After trying a few options on PayloadsAllTheThings, I found that the PHP one wor
 
 Now with the source code, I could look closer at it and see how they were handling their input. First, they did an odd IP address check (which I just assumed worked, when it didn't). The they just called a shell command with the input, so, perfect, I just need to craft an input that will result in a command injection.
 
-This is where I messed up for a while, not realizing I could load the page directly, I tried to use the XXE for an SSRF as well. Turns out simply going to the URL would work, since the docker container would be translating the web requests.
+This is where I messed up for a while, not realizing I could load the page directly, I tried to use the XXE for an SSRF as well. Turns out simply going to the URL would work, since the docker container would be translating the web requests. I can run the flag binary by injection `'; ./flag #`
 
 ```
 http://challenge.acictf.com:43323/make.php?country[]=%27%3B%20.%2Fflag%20%23
