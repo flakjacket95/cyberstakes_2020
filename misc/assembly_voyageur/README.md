@@ -111,7 +111,7 @@ We can assemble and link this with the following commands: `nasm -f elf64 x86_64
 
 ### AArch64
 This arch is also relatively simple to sort out, I'm also generally familiar with ARM code. I could use the `aarch64-linux-gnu-*` set of programs to assemble and link this program. Again, I had to modify the provided program to add a simple header, and then it would compile as expected.
-```
+```nasm
 .text
 	_start:
  		.global main
@@ -151,7 +151,7 @@ I used the assembler command `aarch64-linux-gnu-as -o arm.o arm.asm` and then th
 
 ### MIPS
 MIPS gave me a bit of trouble initially, as, I could not figure out a way to get it to compile with what are usually referenced as `naked` registers, that is, register names that do not have the preceding `$`. After spending way too much time looking for an easy flag, I simply just went through and edited each register to add the `$`. I also added the same general header as on other aarch64, except, the GNU assembler behaves a bit differently on MIPS, so, it needed `__start` instead of `_start`.
-```
+```nasm
 .global __start
 .text
 __start:
@@ -211,7 +211,7 @@ main:
 Then I can assemble and link with `mips-linux-gnu-as mips.asm -o mips.o` and `mips-linux-gnu-ld -static -o mips mips.o`.
 ### Power PC
 Power PC is the odd ball in this group, I've at least used or seen each of the other languages at some point. However, I had never looked at PPC before. Luckily, the GNU tools worked well again for this one! As usual, I added the general prefix to the code and assembler.
-```
+```nasm
 .global _start
 .text
 	_start:
