@@ -58,17 +58,17 @@ To connect these two chains, you can typically recall `main` to allow you to sta
 So, instead, I decided to call read at the end of my first chain, which would then read in the second bit of my chain after the gadget to call read. So, my final plan of attack from top to bottom was as follows:
 
 1. Input stage one of my ROP chain into the `choice_buffer`. This includes:
-  1. 32 padding bytes
-  1. `pop rdi` gadget
-  2. `puts@GOT` address
-  3. `puts@PLT` address
-  4. `pop rdi` gadget
-  5. `p64(0x0)`
-  6. `pop rdx` gadget
-  7. `p64(0x50)`
-  8. `pop rsi` gadget
-  9. Address of start of ROP chain + 8*13
-  10. `read@PLT`
+    1. 32 padding bytes
+    2. `pop rdi` gadget
+    3. `puts@GOT` address
+    4. `puts@PLT` address
+    5. `pop rdi` gadget
+    5. `p64(0x0)`
+    6. `pop rdx` gadget
+    7. `p64(0x50)`
+    8. `pop rsi` gadget
+    9. Address of start of ROP chain + 8*13
+    10. `read@PLT`
 
 
 2. Overwrite the qword behind `rip` with the address of `choice_buffer` + 32 bytes. (Would take two calls to the write function)
@@ -76,7 +76,7 @@ So, instead, I decided to call read at the end of my first chain, which would th
 4. Read output of the above to leak the libc address of puts.
 5. Use a libc library to lookup offsets to system and bin/sh
 6. Add the proper offsets to my exploit script and start over.
-  * I could have had my script take the right offsets as input while running. I decided it would be faster to just restart it with the updated values.
+    * I could have had my script take the right offsets as input while running. I decided it would be faster to just restart it with the updated values.
 7. Shell!
 
 ## Automation
