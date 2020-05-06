@@ -77,7 +77,12 @@ So, instead, I decided to call read at the end of my first chain, which would th
 5. Use a libc library to lookup offsets to system and bin/sh
 6. Add the proper offsets to my exploit script and start over.
     * I could have had my script take the right offsets as input while running. I decided it would be faster to just restart it with the updated values.
-7. Shell!
+7. The first payload is sent again, getting the new address for `puts`, which is necessary due to ASLR.
+8. Sent a second chain to my read function, this one structured as follows:
+    1. `pop rdi` gadget
+    2. Calculated address of /bin/sh in libc
+    3. Calculated address of system in libc
+8. Shell!
 
 ## Automation
 Now that I have an exploit working locally, I need to get it to work dynamically by loading the right gadget addresses from the binary automatically. For this, I can just use pwntools:
