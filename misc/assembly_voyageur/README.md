@@ -1,7 +1,7 @@
 # Assembly Voyageur (Miscellaneous 300)
 TODO: Provide challenge information once site is back up in training mode.
 
-This challenge had 20 solves. 
+Solves: 20
 # Analysis
 From reading, this challenge was relatively straightforward on what we needed to do. However, it was a little more difficult to figure out how to do it.
 

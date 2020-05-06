@@ -3,6 +3,7 @@ We are devloping a new secure password manager! Test it out here: http://challen
 - Does the password manager page perform any insecure actions?
 - Try to create a new entry directly
 
+Solves: 20
 # Installing
 This turned out to be the most difficult piece of this challenge for me. I'm running on macOS, so, I had to modify the installation process locations for my machine.
 

@@ -1,5 +1,6 @@
 # Into The Metaverse (Reverse Engineering 450)
 TODO: Description and images to come later!
+Solves: 27
 # Analysis
 This challenge was about a virtual machine like language that was used to obfuscate the logic in the binary. I first noticed their internal structure implementing the language:
 ```c
@@ -10,7 +11,7 @@ struct {
     char stack[0x800];
 };
 ```
-As the program executed, the various pointers would be updated, and, the program would also modify the data located in both the stack and the opcodes storage segments, which made it sort of like a self unpacking feature. 
+As the program executed, the various pointers would be updated, and, the program would also modify the data located in both the stack and the opcodes storage segments, which made it sort of like a self unpacking feature.
 
 
 I found the following when I started reversing which opcodes did what:

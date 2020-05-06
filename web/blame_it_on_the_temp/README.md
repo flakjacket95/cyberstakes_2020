@@ -1,5 +1,6 @@
 # Blame It On The Temp (Web 150)
 
+Solves: 65
 # Analysis
 At first glance, this website provided a means to upload files, which immediately stood out as a piece of the vulnerability. However, as the hints suggest, the website utilizes the templating engine (Jinja2) to render the webpage. This provides us a second piece of this puzzle. With both together, we can upload a new template and then load it (called Server Side Template Injection or SSTI).
 

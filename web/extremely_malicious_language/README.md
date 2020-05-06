@@ -1,5 +1,6 @@
 # Extremely Malicious Language (Web 300)
 
+Solves: 59
 # Analysis
 Based on the name, this challenge seemed to have to do with XML. The three stages of hints made it seem like we were looking for a chain of vulnerabilities. What confused me here was that this chain didn't necessarily mean that each had to be used to reach the next.
 

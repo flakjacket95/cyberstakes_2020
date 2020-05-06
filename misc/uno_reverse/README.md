@@ -3,6 +3,7 @@ We've done it! We found an open service that will run code we give it! It looks 
 - The flag is in a file named "flag".
 - Shellcode doesn't always need to spawn a shell.
 
+Solves: 18
 # Analysis
 This challenge is all about writing shellcode, shellcode that specifically fits into the parameters this binary gave us. I spent a little time taking notes on what I was and was not allowed to do in the binary, and what parameters there were. (just because they're in the list below doesn't mean I figured them out right away!)
 
